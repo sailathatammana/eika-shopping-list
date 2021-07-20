@@ -1,10 +1,9 @@
-import { React, useState} from "react";
+import { React, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import Overlay from "react-overlay-component";  
-import Dropzone from "./Dropzone";
+import Overlay from "react-overlay-component";
 import Methods from "../services/Methods";
 
-export default function AddItemOverlay({/*  list */ type, item }) {
+export default function AddItemOverlay({  type, item }) {
   //constants
   const [text, setText] = useState("");
   const [price, setPrice] = useState(-1);
@@ -29,15 +28,15 @@ export default function AddItemOverlay({/*  list */ type, item }) {
     animate: true,
     clickDismiss: true,
     escapeDismiss: true,
-    focusOutline: true,
+    focusOutline: false, 
+    //contentClass: "overlay"
   };
-
 
   const addItemToList = (e) => {
     e.preventDefault();
     // check that data entered is correct
-    const isANumber = !isNaN(text)
-    const emptyPrice = price === -1
+    const isANumber = !isNaN(text);
+    const emptyPrice = price === -1;
 
     if (
       typeof text == !"string" ||
@@ -46,20 +45,15 @@ export default function AddItemOverlay({/*  list */ type, item }) {
       isANumber
     ) {
       alert("Please enter a valid name (3 - 20 characters) ");
-
     } else if (isNaN(price) || emptyPrice || price > 100000) {
       alert("Please enter a valid price (max 100 000)");
     } else {
+      const savedList = Methods.getSavedListInLocalStorage();
 
-    const savedList = Methods.getSavedListInLocalStorage()
-      
-
-      //const defaultImgUrl = "https://www.google.com/search?q=chair&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj8hM6-q-LxAhXPtYsKHfBBAjIQ_AUoAXoECAIQAw&biw=1280&bih=577#imgrc=DLtoK1KGJ3wQaM";
       let newItem = new Product(
         uuidv4(),
         text.toUpperCase(),
         price,
-        //defaultImgUrl,
         false,
         Date.now()
       );
@@ -75,7 +69,7 @@ export default function AddItemOverlay({/*  list */ type, item }) {
 
   // edit an item - todo
   const editItem = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     // check that data entered is correct
     if (
       typeof text == !"string" ||
@@ -84,10 +78,9 @@ export default function AddItemOverlay({/*  list */ type, item }) {
       !isNaN(text)
     ) {
       alert("Please enter a valid name (max 20 characters) ");
-    }else if (isNaN(price) || price === -1 || price > 100000) {
+    } else if (isNaN(price) || price === -1 || price > 100000) {
       alert("Please enter a valid price (max 100 000)");
     } else {
-
       const currentList = JSON.parse(localStorage.getItem("list"));
       const product = currentList.filter(function (i) {
         return i.id === item.id;
@@ -103,7 +96,7 @@ export default function AddItemOverlay({/*  list */ type, item }) {
       localStorage.setItem("list", JSON.stringify(otherProducts)); //save updated list
       window.location.reload();
     }
-  }
+  };
 
   return (
     <div>
@@ -142,7 +135,7 @@ export default function AddItemOverlay({/*  list */ type, item }) {
                 ></input>
 
                 <input
-                  className="btn  btn-submit"
+                  className="btn btn-oval btn-submit"
                   type="submit"
                   value="ADD ITEM"
                 ></input>
@@ -154,7 +147,7 @@ export default function AddItemOverlay({/*  list */ type, item }) {
 
       {type === "editItem" && (
         <div>
-          <button className="btn btn-roll btn-edit"
+           <button className="btn btn-roll btn-edit"
               onClick={() => {
                 setOverlay(true);
               }}>
@@ -184,31 +177,11 @@ export default function AddItemOverlay({/*  list */ type, item }) {
                 ></input>
 
                 <input
-                  className="btn  btn-submit"
+                  className="btn btn-oval btn-submit"
                   type="submit"
                   value="EDIT ITEM"
                 ></input>
               </form>
-            </div>
-          </Overlay>
-        </div>
-      )}
-
-      {type === "addImage" && (
-        <div>
-          <button
-            className="btn img-overlay"
-            onClick={() => {
-              setOverlay(true);
-            }}>
-             +
-          </button>
-          <Overlay
-            configs={configs}
-            isOpen={isOpen}
-            closeOverlay={closeOverlay}>
-            <div className="overlay-dropzone">           
-              <Dropzone item={item} />            
             </div>
           </Overlay>
         </div>

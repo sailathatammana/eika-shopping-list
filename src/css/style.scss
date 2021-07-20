@@ -1,0 +1,90 @@
+/* @import './sidebar';*/
+@import './footer'; 
+@import './header'; 
+@import './structure';
+/* @import './ShoppingList';
+@import './overlay';
+@import './buttons';
+@import './item';
+@import './nostalgic';
+@import './checkbox';
+@import './sort_filter_banner'; */
+
+/* fonts imports*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');/* variables*/
+:root {
+  --header-height: 80px;
+  --footer-height: 60px;
+
+  /*colors*/
+  --lagoonBlue: rgb(130, 221, 228);
+  --deepBlue: rgb(50, 167, 173);
+
+  --lemonYellow: rgb(247, 245, 176);
+  --gradientYellow: linear-gradient(
+    0deg,
+    rgba(254, 212, 40, 1) 100%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  --med-yellow: #e6ce1d;
+  --light-yellow: #f4dd08;
+  --bright-yellow: #fdec00;
+  --classy-grey: #403f45;
+  
+  --backgrey:rgb(43, 43, 43);
+  --backgrey2:rgb(32, 32, 32);
+  --champagne:#AD974F;
+
+  --color-background-menu: white;
+  --color-text-menu: grey;
+
+  --color-footer-structure: linear-gradient(
+    to right,
+    rgb(223, 223, 223),
+    #d6d6d6
+  );
+
+  /*fonts type*/
+  --font-funny: "Bangers", cursive;
+  --font-classy: "Ubuntu", sans-serif;
+  --font-code: "Source Code Pro", monospace;
+
+  /*font-size*/
+  --font-XS: 15px;
+  --font-S: 20px;
+  --font-M: 25px;
+  --font-L: 30px;
+  --font-XL: 40px;
+
+  --font-dropdown-menu: 20px;
+
+  /*spaces*/
+
+  --bigspace: 60px;
+  --mediumspace: 30px;
+  --smallspace: 10px;
+
+ /*animation*/
+
+ @keyframes downarrow {
+  0% { -webkit-transform: translateY(0); opacity: 0.4 }
+  100% { -webkit-transform: translateY(0.4em); opacity: 0.9 }
+}
+
+
+@keyframes splash{
+
+  40%{
+    background: #866efb;
+    box-shadow: 0 -18px 0 -8px #866efb, 16px -8px 0 -8px #866efb, 16px 8px 0 -8px #866efb, 0 18px 0 -8px #866efb, -16px 8px 0 -8px #866efb, -16px -8px 0 -8px #866efb;
+  }
+   
+  100%{
+    background: #866efb;
+    box-shadow: 0 -36px 0 -10px transparent, 32px -16px 0 -10px transparent, 32px 16px 0 -10px transparent, 0 36px 0 -10px transparent, -32px 16px 0 -10px transparent, -32px -16px 0 -10px transparent;
+  
+  }
+    
+}
+}

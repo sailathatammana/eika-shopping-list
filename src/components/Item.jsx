@@ -2,18 +2,17 @@ import { useState } from "react";
 
 import Overlay from "./Overlay";
 import Methods from "../services/Methods";
-import chair from "../assets/images/chair.jpg";
 
-export default function Item({ item }) {
+export default function Item({ item, reload }) {
   //constants
   const [open, setOpen] = useState(false);
-
-  //console.log(open)
-  //console.log(list)
+  const isAcquired = Methods.getSavedListInLocalStorage().filter((i) => {
+    return i.id === item.id;
+  })[0].acquired;
 
   // check an item - ok working
   function handleCheck() {
-    const savedList = Methods.getSavedListInLocalStorage()
+    const savedList = Methods.getSavedListInLocalStorage();
     const product = savedList.filter(function (i) {
       return i.id === item.id;
     });
@@ -23,18 +22,19 @@ export default function Item({ item }) {
       return i.id !== item.id;
     });
     otherProducts.push(product[0]);
-    localStorage.setItem("list", JSON.stringify(otherProducts)); //save updated list
+    Methods.saveListToLocalSorage(otherProducts);
+
     window.location.reload();
   }
 
   // delete an item - ok working
   function handleDelete() {
-    const savedList = Methods.getSavedListInLocalStorage()
+    const savedList = Methods.getSavedListInLocalStorage();
     const otherProducts = savedList.filter(function (i) {
       return i.id !== item.id;
     });
     localStorage.setItem("list", JSON.stringify(otherProducts));
-    window.location.reload();
+    window.location.reload(); // todo - reload only Item.jsx
   }
 
   function toggleDrawer() {
@@ -44,23 +44,27 @@ export default function Item({ item }) {
   return (
     <div className={"item" + (open ? " item-open" : "")}>
       <div className="lisere"> </div>
-      <div className="item-data">
-        <div>
-        <img src={chair} alt="chair" width="20px"/>
-          <Overlay item={item} type={"addImage"} />
-        </div>
+      <div className={"item-data" + (isAcquired ? " item-data-acquired" : "")}>
 
-        <span>{item.name}</span>
-        <span>
-          <strong>{item.price}:-</strong>
+        <span className="data">{item.name}</span>
+        <span className="data">
+          <strong>{item.price} :-</strong>
         </span>
 
-        <input
-          className="checkbox"
-          type="checkbox"
-          checked={item.acquired}
-          onChange={handleCheck}
-        />
+        <div class="exp">
+          <div class="checkbox">
+            <input
+              type="checkbox"
+              id={"cbx-" + item.id}
+              name="check"
+              checked={isAcquired}
+              onChange={handleCheck}
+            />
+            <label for={"cbx-" + item.id}>
+              <span></span>
+            </label>
+          </div>
+        </div>
       </div>
 
       {open === true ? (
@@ -83,7 +87,7 @@ export default function Item({ item }) {
           <i class="fas fa-expand-arrows-alt"></i>
           </button>
         </div>
-      )}
+      )}  
     </div>
   );
 }

@@ -1,27 +1,22 @@
+import React from "react";
+
 import logo from "./assets/images/logo.png";
+import cart from "./assets/images/cart.png";
+import "./css/style.scss";
 import ShoppingList from "./components/ShoppingList";
 import Footer from "./components/Footer";
 
 export default function App() {
-
-  //localStorage.setItem("truc","pomme")
-
-
+  
   return (
-    <div className="App">
+    <div className= "App">
       <header className="header">
-        <img src={logo} alt="logo" />
-        <div className="filter">
-        <p>Do you feel nostalgic ? </p>
-        <input
-          className="slider"
-          type="checkbox"
-          /* checked={filter}
-          onChange={toggleFilter} */
-        />
-      </div>
+        <img className="logo" src={logo} alt="logo" />
       </header>
       <main>
+      <img
+            className="img-main" src={cart}  alt="img-main" width = "200px"
+            />
         <ShoppingList />
       </main>
       <Footer />

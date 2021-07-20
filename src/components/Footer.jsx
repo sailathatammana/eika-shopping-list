@@ -1,9 +1,11 @@
 export default function Footer() {
   return (
     <footer>
+      
+
       <ol>
-        <li>
-          <a href= "mailto:sailathatammana1997@gmail.com" target="blank" className="icon">
+      <li>
+          <a href= "mailto:sailathatammana1997@gmail.com" target="blank">
           <i class="fas fa-envelope" aria-hidden="true"></i>
           </a>
         </li>
