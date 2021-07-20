@@ -117,8 +117,6 @@ export default function List() {
         </div>
       ) : (
         <div className="emptylist">
-          <div className="arrowdown"></div>
-          <p> Add your first item </p>
         </div>
       )}
 
@@ -205,7 +203,7 @@ export default function List() {
       <div className="buttons">
         <Overlay type={"addItem"} />
         <button className="btn btn-oval btn-clear" onClick={handleClear}>
-          REMOVE ALL ITEMS
+          REMOVE ALL ITEMS FROM LIST
         </button>
       </div>
     </section>

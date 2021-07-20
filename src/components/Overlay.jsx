@@ -109,7 +109,7 @@ export default function AddItemOverlay({  type, item }) {
             }}
           >
             {" "}
-            ADD ITEM{" "}
+            ADD ITEM TO LIST{" "}
           </button>
 
           <Overlay
