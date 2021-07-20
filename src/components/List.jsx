@@ -6,7 +6,7 @@ import Overlay from "./Overlay";
 import ListHeader from "./ListHeader";
 import Methods from "../services/Methods";
 
-export default function ShoppingList() {
+export default function List() {
   // STATES
   const [filterResults, setFilterResults] = useState(
     Methods.getFilterSelected()
