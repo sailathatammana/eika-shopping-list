@@ -23,7 +23,6 @@
       }
   
       .box-sort:before {
-        content: url("https://clecardona.com/summer_camp/eika/icon/sort-up.svg");
         position: relative;
         top: 2px;
         left: 0;
@@ -55,11 +54,10 @@
   }
   
   .filter:before {
-    content: url("https://clecardona.com/summer_camp/eika/icon/funnel.svg");
     position: relative;
     top: 2px;
     left: 0;
-    margin: 0 5px;
+    margin: 0 5px;  
   }
   
   .filter {

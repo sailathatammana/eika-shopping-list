@@ -9,7 +9,6 @@ export default function FooterList() {
               <p></p>
               <p></p>
             
-            <div className="hr"></div>
   
       </div>
      

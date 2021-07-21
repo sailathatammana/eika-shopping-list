@@ -3,14 +3,14 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    .img-main {
-      height: 200px;
-      width: auto;
-    }
     h1 {
       font-weight: 900;
       padding-bottom: 40px;
     }
+  }
+  img-main {
+    height: 200px;
+    width: auto;
   }
   
   .shopping_list {
@@ -73,13 +73,6 @@
       align-items: center;
   
       width: 100%;
-    }
-  
-    .hr {
-      background: #ecebeb;
-      width: 90vw;
-      height: 1px;
-      margin: 5px 0 15px 0;
     }
   }
   

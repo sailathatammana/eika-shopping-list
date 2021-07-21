@@ -27,16 +27,6 @@ export default function Item({ item, reload }) {
     window.location.reload();
   }
 
-  // delete an item - ok working
-  function handleDelete() {
-    const savedList = Methods.getSavedListInLocalStorage();
-    const otherProducts = savedList.filter(function (i) {
-      return i.id !== item.id;
-    });
-    localStorage.setItem("list", JSON.stringify(otherProducts));
-    window.location.reload(); // todo - reload only Item.jsx
-  }
-
   function toggleDrawer() {
     setOpen(!open);
   }
@@ -75,10 +65,6 @@ export default function Item({ item, reload }) {
 
           <div className="content">
             <Overlay type={"editItem"} item={item} />
-
-            <button className="btn btn-roll btn-delete" onClick={handleDelete}>
-            <i class="far fa-trash-alt"></i>
-            </button>
           </div>
         </div>
       ) : (

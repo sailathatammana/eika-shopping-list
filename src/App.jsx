@@ -13,7 +13,7 @@ export default function App() {
       <header className="header">
         <img className="logo" src={logo} alt="logo" />
       </header>
-      <main>
+      <main className= "main" >
       <img
             className="img-main" src={cart}  alt="img-main" width = "200px"
             />

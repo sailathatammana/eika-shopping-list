@@ -1,25 +1,19 @@
 footer {
-    background: rgb(248, 197, 197); 
-    display: grid;
-    grid-template-columns:  1fr 150px;
-    color: rgba(10, 10, 10, 0.925);
-    text-align: center;
+  background: rgb(245, 200, 200);
+  align-items: center;
+  color: rgba(10, 10, 10, 0.925);
+
+  ol {
     
-  
-    ol {
-      
-      overflow:hidden ;
-      list-style: none;
-      display: flex;
-      flex-direction: row;
-      
-      justify-content: center;
-  
-      li {
-        margin: 0 5px ;
-        padding-left: 75px;
-      }
-  
+    overflow:hidden ;
+    list-style: none;
+    display: flex;
+    
+    justify-content: center;
+
+    li {
+      margin: 0 3px ;
     }
 
   }
+}

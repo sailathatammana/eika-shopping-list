@@ -61,7 +61,7 @@ export default function List() {
                   onClick={sortByName}
                 />
                 <label className="label-for-check" htmlFor="name">
-                  A→Z
+                  Name
                 </label>
               </div>
 
@@ -203,7 +203,7 @@ export default function List() {
       <div className="buttons">
         <Overlay type={"addItem"} />
         <button className="btn btn-oval btn-clear" onClick={handleClear}>
-          REMOVE ALL ITEMS FROM LIST
+          REMOVE ALL ITEMS
         </button>
       </div>
     </section>
