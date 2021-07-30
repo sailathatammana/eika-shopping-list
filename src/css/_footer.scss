@@ -3,16 +3,14 @@ footer {
   color: rgba(10, 10, 10, 0.925);
 
   ol {
-    
-    overflow:hidden ;
+    overflow: hidden;
     list-style: none;
     display: flex;
-    
+
     justify-content: center;
 
     li {
-      margin: 0 3px ;
+      margin: 0 3px;
     }
-
   }
 }

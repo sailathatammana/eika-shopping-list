@@ -35,7 +35,6 @@ export default function Item({ item, reload }) {
     <div className={"item" + (open ? " item-open" : "")}>
       <div className="lisere"> </div>
       <div className={"item-data" + (isAcquired ? " item-data-acquired" : "")}>
-
         <span className="data">{item.name}</span>
         <span className="data">
           <strong>{item.price} :-</strong>
@@ -60,7 +59,7 @@ export default function Item({ item, reload }) {
       {open === true ? (
         <div className="drawer">
           <button className="btn btn-roll btn-drawer" onClick={toggleDrawer}>
-          <i class="far fa-window-close"></i>
+            <i class="far fa-window-close"></i>
           </button>
 
           <div className="content">
@@ -70,10 +69,10 @@ export default function Item({ item, reload }) {
       ) : (
         <div className="drawer">
           <button className="btn btn-drawer" onClick={toggleDrawer}>
-          <i class="fas fa-expand-arrows-alt"></i>
+            <i class="fas fa-expand-arrows-alt"></i>
           </button>
         </div>
-      )}  
+      )}
     </div>
   );
 }

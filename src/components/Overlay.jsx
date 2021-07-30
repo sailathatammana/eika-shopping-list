@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import Overlay from "react-overlay-component";
 import Methods from "../services/Methods";
 
-export default function AddItemOverlay({  type, item }) {
+export default function AddItemOverlay({ type, item }) {
   //constants
   const [text, setText] = useState("");
   const [price, setPrice] = useState(-1);
@@ -28,7 +28,7 @@ export default function AddItemOverlay({  type, item }) {
     animate: true,
     clickDismiss: true,
     escapeDismiss: true,
-    focusOutline: false, 
+    focusOutline: false,
     //contentClass: "overlay"
   };
 
@@ -147,11 +147,13 @@ export default function AddItemOverlay({  type, item }) {
 
       {type === "editItem" && (
         <div>
-           <button className="btn btn-roll btn-edit"
-              onClick={() => {
-                setOverlay(true);
-              }}>
-              <i class="fas fa-edit"></i>
+          <button
+            className="btn btn-roll btn-edit"
+            onClick={() => {
+              setOverlay(true);
+            }}
+          >
+            <i class="fas fa-edit"></i>
           </button>
 
           <Overlay

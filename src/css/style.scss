@@ -1,15 +1,15 @@
-@import './footer'; 
-@import './header'; 
-@import './structure';
-@import './List';
-@import './overlay';
-@import './item';
-@import './buttons';
-@import './sort_filter_banner';
+@import "./footer";
+@import "./header";
+@import "./structure";
+@import "./List";
+@import "./overlay";
+@import "./item";
+@import "./buttons";
+@import "./sort_filter_banner";
 
 /* fonts imports*/
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');/* variables*/
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap"); /* variables*/
 :root {
   --header-height: 80px;
   --footer-height: 60px;
@@ -28,10 +28,10 @@
   --light-yellow: #f4dd08;
   --bright-yellow: #fdec00;
   --classy-grey: #403f45;
-  
-  --backgrey:rgb(43, 43, 43);
-  --backgrey2:rgb(32, 32, 32);
-  --champagne:#AD974F;
+
+  --backgrey: rgb(43, 43, 43);
+  --backgrey2: rgb(32, 32, 32);
+  --champagne: #ad974f;
 
   --color-background-menu: white;
   --color-text-menu: grey;
@@ -62,26 +62,32 @@
   --mediumspace: 30px;
   --smallspace: 10px;
 
- /*animation*/
+  /*animation*/
 
- @keyframes downarrow {
-  0% { -webkit-transform: translateY(0); opacity: 0.4 }
-  100% { -webkit-transform: translateY(0.4em); opacity: 0.9 }
-}
-
-
-@keyframes splash{
-
-  40%{
-    background: #866efb;
-    box-shadow: 0 -18px 0 -8px #866efb, 16px -8px 0 -8px #866efb, 16px 8px 0 -8px #866efb, 0 18px 0 -8px #866efb, -16px 8px 0 -8px #866efb, -16px -8px 0 -8px #866efb;
+  @keyframes downarrow {
+    0% {
+      -webkit-transform: translateY(0);
+      opacity: 0.4;
+    }
+    100% {
+      -webkit-transform: translateY(0.4em);
+      opacity: 0.9;
+    }
   }
-   
-  100%{
-    background: #866efb;
-    box-shadow: 0 -36px 0 -10px transparent, 32px -16px 0 -10px transparent, 32px 16px 0 -10px transparent, 0 36px 0 -10px transparent, -32px 16px 0 -10px transparent, -32px -16px 0 -10px transparent;
-  
+
+  @keyframes splash {
+    40% {
+      background: #866efb;
+      box-shadow: 0 -18px 0 -8px #866efb, 16px -8px 0 -8px #866efb,
+        16px 8px 0 -8px #866efb, 0 18px 0 -8px #866efb, -16px 8px 0 -8px #866efb,
+        -16px -8px 0 -8px #866efb;
+    }
+
+    100% {
+      background: #866efb;
+      box-shadow: 0 -36px 0 -10px transparent, 32px -16px 0 -10px transparent,
+        32px 16px 0 -10px transparent, 0 36px 0 -10px transparent,
+        -32px 16px 0 -10px transparent, -32px -16px 0 -10px transparent;
+    }
   }
-    
-}
 }

@@ -49,47 +49,44 @@ export default function List() {
         <div>
           <div className="filter-sort">
             <div className="sort">
-            <p className="sort-label">Sort by</p>
+              <p className="sort-label">Sort by</p>
               <div className="box-sort">
+                <div className="btn-sort">
+                  <input
+                    className="check-with-label"
+                    type="checkbox"
+                    id="name"
+                    checked={sortBy === "name"}
+                    onClick={sortByName}
+                  />
+                  <label className="label-for-check" htmlFor="name">
+                    Name
+                  </label>
+                </div>
 
-              <div className="btn-sort">
-                <input
-                  className="check-with-label"
-                  type="checkbox"
-                  id="name"
-                  checked={sortBy === "name"}
-                  onClick={sortByName}
-                />
-                <label className="label-for-check" htmlFor="name">
-                  Name
-                </label>
-              </div>
+                <div className="btn-sort">
+                  <input
+                    className="check-with-label"
+                    type="checkbox"
+                    id="price"
+                    checked={sortBy === "price"}
+                    onClick={sortByPrice}
+                  />
 
-              <div className="btn-sort">
-                <input
-                  className="check-with-label"
-                  type="checkbox"
-                  id="price"
-                  checked={sortBy === "price"}
-                  onClick={sortByPrice}
-                />
+                  <label className="label-for-check" htmlFor="price">
+                    Price
+                  </label>
+                </div>
 
-                <label className="label-for-check" htmlFor="price">
-                  Price 
-                </label>
-              </div >
-
-              <div className="btn-sort">
-              <button onClick={sortByTimestamp}>  
-                Reset
-              </button>
+                <div className="btn-sort">
+                  <button onClick={sortByTimestamp}>Reset</button>
+                </div>
               </div>
             </div>
-              </div>
-              
+
             <div className="filter">
               {/* <p>Acquired products</p> */}
-             
+
               {/* <div className="slider">
                 <input
                   type="checkbox"
@@ -107,17 +104,15 @@ export default function List() {
                 />
 
                 <label className="label-for-check" htmlFor="acquired">
-                  Owned 
+                  Owned
                 </label>
               </div>
-
             </div>
           </div>
           <ListHeader />
         </div>
       ) : (
-        <div className="emptylist">
-        </div>
+        <div className="emptylist"></div>
       )}
 
       <ol>
@@ -185,7 +180,7 @@ export default function List() {
               </div>
             )}
 
-          {sortBy === "timestamp" && (
+            {sortBy === "timestamp" && (
               <div>
                 {Methods.sortByTimestampOlderFirst(data).map((item) => (
                   <li key={item.id}>
