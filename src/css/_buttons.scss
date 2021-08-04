@@ -9,16 +9,16 @@
   transform: scale(0.75);
 }
 .btn-roll:hover {
-  transform: scale(0.85) translateY(-2px) rotate(-180deg);
+  transform: scale(0.85) translateY(-2px);
   transition: ease 0.3s;
 }
 
 .btn-delete {
-  color: rgb(221, 133, 133);
+  color: rgb(241, 216, 216);
 }
 
 .btn-delete:hover {
-  color: rgb(236, 62, 62);
+  color: rgb(241, 216, 216);
 }
 
 .btn-edit {
@@ -35,7 +35,6 @@
 }
 
 .btn-submit {
-  // background: rgb(20, 53, 126);
   border: 1px rgb(20, 53, 126) solid;
   color: rgb(20, 53, 126);
 
