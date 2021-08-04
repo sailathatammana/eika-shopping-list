@@ -2,7 +2,7 @@
   --lightgrey: rgb(245, 245, 245);
   width: 90vw;
 
-  box-shadow: 2px 2px 4px rgb(245, 245, 245);
+  // box-shadow: 2px 2px 4px rgb(245, 245, 245);
   display: grid;
   grid-template-columns: 8px 1fr 50px;
   align-items: center;
@@ -10,8 +10,8 @@
 
   margin: 6px 0;
   padding: 0px 0px;
-  border-radius: 20px;
-  border: 1px solid #beb8b8;
+  /*  border-radius: 20px;
+  border: 1px solid #beb8b8; */
 
   .item-data {
     background: white;
