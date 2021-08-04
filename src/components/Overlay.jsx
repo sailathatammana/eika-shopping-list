@@ -54,7 +54,7 @@ export default function AddItemOverlay({ type, item }) {
         uuidv4(),
         text.toUpperCase(),
         price,
-        false,
+        /*      false, */
         Date.now()
       );
 
