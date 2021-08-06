@@ -45,7 +45,7 @@ export default function AddItemOverlay({ type, item }) {
       isANumber
     ) {
       alert("Please enter a valid name (3 - 20 characters) ");
-    } else if (isNaN(price) || emptyPrice || price > 100000) {
+    } else if (isNaN(price) || emptyPrice || price <= 0 || price > 100000) {
       alert("Please enter a valid price (max 100 000)");
     } else {
       const savedList = Methods.getSavedListInLocalStorage();
@@ -78,7 +78,7 @@ export default function AddItemOverlay({ type, item }) {
       !isNaN(text)
     ) {
       alert("Please enter a valid name (max 20 characters) ");
-    } else if (isNaN(price) || price === -1 || price > 100000) {
+    } else if (isNaN(price) || price <= 0 || price > 100000) {
       alert("Please enter a valid price (max 100 000)");
     } else {
       const currentList = JSON.parse(localStorage.getItem("list"));
@@ -111,7 +111,6 @@ export default function AddItemOverlay({ type, item }) {
             {" "}
             ADD ITEM TO LIST{" "}
           </button>
-
           <Overlay
             configs={configs}
             isOpen={isOpen}
@@ -144,7 +143,6 @@ export default function AddItemOverlay({ type, item }) {
           </Overlay>
         </div>
       )}
-
       {type === "editItem" && (
         <div>
           <button
@@ -155,7 +153,6 @@ export default function AddItemOverlay({ type, item }) {
           >
             <i class="fas fa-edit"></i>
           </button>
-
           <Overlay
             configs={configs}
             isOpen={isOpen}
@@ -177,7 +174,6 @@ export default function AddItemOverlay({ type, item }) {
                   onChange={(e) => setPrice(e.target.value)}
                   placeholder="Price"
                 ></input>
-
                 <input
                   className="btn btn-oval btn-submit"
                   type="submit"

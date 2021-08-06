@@ -1,9 +1,12 @@
 import { useState } from "react";
 import React from "react";
 
+import Welcome from "./Welcome";
 import Item from "./Item";
 import Overlay from "./Overlay";
 import ListHeader from "./ListHeader";
+import Sort from "./Sort";
+import Button from "./Button";
 import Methods from "../services/Methods";
 
 export default function List() {
@@ -15,6 +18,27 @@ export default function List() {
 
   //sorting states
   const [sortBy, setSortBy] = useState(Methods.getSortBySelected());
+
+  // Sorting/filtering logic
+  let items = Methods.sortByTimestampOlderFirst(data);
+
+  if (filterResults) {
+    if (sortBy === "price") {
+      items = Methods.getOnlyAcquiredItems(Methods.sortByPrice(data));
+    } else if (sortBy === "name") {
+      items = Methods.getOnlyAcquiredItems(Methods.sortByName(data));
+    } else {
+      items = Methods.getOnlyAcquiredItems(
+        Methods.sortByTimestampOlderFirst(data)
+      );
+    }
+  } else {
+    if (sortBy === "price") {
+      items = Methods.sortByPrice(data);
+    } else if (sortBy === "name") {
+      items = Methods.sortByName(data);
+    }
+  }
 
   function sortByName() {
     setSortBy("name");
@@ -45,161 +69,44 @@ export default function List() {
 
   return (
     <section className="shopping_list">
-      {data.length > 0 ? (
-        <div>
-          <div className="filter-sort">
-            <div className="sort">
-              <p className="sort-label">Sort by</p>
-              <div className="box-sort">
-                <div className="btn-sort">
-                  <input
-                    className="check-with-label"
-                    type="checkbox"
-                    id="name"
-                    checked={sortBy === "name"}
-                    onClick={sortByName}
-                  />
-                  <label className="label-for-check" htmlFor="name">
-                    Name
-                  </label>
-                </div>
-
-                <div className="btn-sort">
-                  <input
-                    className="check-with-label"
-                    type="checkbox"
-                    id="price"
-                    checked={sortBy === "price"}
-                    onClick={sortByPrice}
-                  />
-
-                  <label className="label-for-check" htmlFor="price">
-                    Price
-                  </label>
-                </div>
-
-                <div className="btn-sort">
-                  <button onClick={sortByTimestamp}>Reset</button>
-                </div>
-              </div>
-            </div>
-
-            <div className="filter">
-              {/* <p>Acquired products</p> */}
-
-              {/* <div className="slider">
-                <input
-                  type="checkbox"
-                  checked={filterResults}
-                  onChange={toggleFilter}
-                />
-              </div> */}
-              <div className="btn-sort">
-                <input
-                  className="check-with-label"
-                  type="checkbox"
-                  id="acquired"
-                  checked={filterResults}
-                  onClick={toggleFilter}
-                />
-
-                <label className="label-for-check" htmlFor="acquired">
-                  Owned
-                </label>
-              </div>
-            </div>
-          </div>
-          <ListHeader />
-        </div>
+      {data.length === 0 ? (
+        <Welcome />
       ) : (
-        <div className="emptylist"></div>
+        <>
+          <h1 className="title">My Shopping-List</h1>
+          <Sort
+            sortBy={sortBy}
+            sortByName={sortByName}
+            sortByPrice={sortByPrice}
+            sortByTimestamp={sortByTimestamp}
+            filterResults={filterResults}
+            toggleFilter={toggleFilter}
+          />
+          <div className="list-container">
+            <ListHeader />
+            <ol>
+              <>
+                {items.map((item) => (
+                  <li key={item.id}>
+                    <Item item={item} />
+                  </li>
+                ))}
+              </>
+            </ol>
+          </div>
+
+          {(filterResults && Methods.getOnlyAcquiredItems(data).length) ===
+            0 && (
+            <span className="legend-middle">
+              <p> No items found</p>
+            </span>
+          )}
+        </>
       )}
-
-      <ol>
-        {filterResults ? (
-          <div>
-            {sortBy === "price" && (
-              <div>
-                {Methods.sortByPrice(Methods.getOnlyAcquiredItems(data)).map(
-                  (item) => (
-                    <li key={item.id}>
-                      <Item item={item} />
-                    </li>
-                  )
-                )}
-              </div>
-            )}
-            {sortBy === "name" && (
-              <div>
-                {Methods.sortByName(Methods.getOnlyAcquiredItems(data)).map(
-                  (item) => (
-                    <li key={item.id}>
-                      <Item item={item} />
-                    </li>
-                  )
-                )}
-              </div>
-            )}
-
-            {sortBy === "timestamp" && (
-              <div>
-                {Methods.sortByTimestampOlderFirst(
-                  Methods.getOnlyAcquiredItems(data)
-                ).map((item) => (
-                  <li key={item.id}>
-                    <Item item={item} />
-                  </li>
-                ))}
-              </div>
-            )}
-
-            {Methods.getOnlyAcquiredItems(data).length === 0 && (
-              <span className="legend-middle">
-                <p> No items found</p>
-              </span>
-            )}
-          </div>
-        ) : (
-          <div>
-            {sortBy === "price" && (
-              <div>
-                {Methods.sortByPrice(data).map((item) => (
-                  <li key={item.id}>
-                    <Item item={item} />
-                  </li>
-                ))}
-              </div>
-            )}
-            {sortBy === "name" && (
-              <div>
-                {Methods.sortByName(data).map((item) => (
-                  <li key={item.id}>
-                    <Item item={item} />
-                  </li>
-                ))}
-              </div>
-            )}
-
-            {sortBy === "timestamp" && (
-              <div>
-                {Methods.sortByTimestampOlderFirst(data).map((item) => (
-                  <li key={item.id}>
-                    <Item item={item} />
-                  </li>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
-      </ol>
-
-      {/*  <ListFooter/> */}
 
       <div className="buttons">
         <Overlay type={"addItem"} />
-        <button className="btn btn-oval btn-clear" onClick={handleClear}>
-          REMOVE ALL ITEMS
-        </button>
+        <Button handleClear={handleClear} length={data.length} />
       </div>
     </section>
   );

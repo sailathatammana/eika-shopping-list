@@ -46,7 +46,7 @@ export default function Item({ item, reload }) {
       <div className={"item-data" + (isAcquired ? " item-data-acquired" : "")}>
         <span className="data">{item.name}</span>
         <span className="data">
-          <strong>{item.price} :-</strong>
+          <strong>{item.price}</strong>
         </span>
 
         <div class="exp">
