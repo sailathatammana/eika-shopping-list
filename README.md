@@ -11,7 +11,7 @@ The application was created with [React](https://reactjs.org/).
 
 1. Add an item to cart with a name and price.
 2. Can mark the item was owned.
-3. Can viwe the items which are owned.
+3. Can view the items which are owned.
 4. Close and reopen the page without losing your list.
 5. Sort the items by name and price.
 
