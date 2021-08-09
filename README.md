@@ -4,7 +4,7 @@
 
 ## Description
 
-A shopping list application where users can keep track of things to get from the store EIKA.
+A shopping todo list application which allows user to add items and keep track of things to buy from the store EIKA.
 The application was created with [React](https://reactjs.org/).
 
 ## Features
