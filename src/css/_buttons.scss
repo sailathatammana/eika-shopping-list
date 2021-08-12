@@ -184,15 +184,23 @@ header {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 50em;
+    border: 1px solid #f5f5f5;
+  }
+
+  .wrapper {
+    width: 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .icon {
+    margin-right: 12px;
   }
 
   :checked + label {
-    background-color: var(--colorMain);
-    color: var(--colorContrast);
-  }
-  :checked + label:hover {
-    background-color: var(--colorHover);
+    border: 1px solid (--colorMain);
   }
 }
 
