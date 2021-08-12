@@ -1,4 +1,4 @@
-import { Eye, EyeSlash } from "react-bootstrap-icons";
+import Toogle from "./Toggle";
 
 export default function Sort({
   sortBy,
@@ -62,19 +62,7 @@ export default function Sort({
             onChange={toggleFilter}
           />
           <label className="label-for-check" htmlFor="acquired">
-            <div className="wrapper">
-              {filterResults ? (
-                <>
-                  <EyeSlash className="btn btn-sm icon" />
-                  <p>Go back</p>
-                </>
-              ) : (
-                <>
-                  <Eye className="btn btn-sm icon" />
-                  <p>Show Acquired</p>
-                </>
-              )}
-            </div>
+            <Toogle filterResults={filterResults} />
           </label>
         </div>
       </div>
