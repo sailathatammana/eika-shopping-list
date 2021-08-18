@@ -3,11 +3,18 @@ import { v4 as uuidv4 } from "uuid";
 import Overlay from "react-overlay-component";
 import Methods from "../services/Methods";
 
+// Note: Two hundred lines of code for a component (my comments take about 10-15) is unnaceptable for any kind of development
+// -1 (yes, the -1 is deducted per method and the returned jsX and another -1 for the component overall)
 export default function AddItemOverlay({ type, item }) {
   //constants
   const [text, setText] = useState("");
   const [price, setPrice] = useState(-1);
 
+  // you dont need to create a class,
+  // you can make an object on the fly.
+  // you use classes when you have to add encapsulated functionality.
+  // right now you are just storing values, thats the job of the object data type
+  // -1
   class Product {
     constructor(id, name, price, url, acquired, timestamp) {
       this.id = id;
@@ -32,6 +39,12 @@ export default function AddItemOverlay({ type, item }) {
     //contentClass: "overlay"
   };
 
+  // This method is trying to do to much
+  // no method with 30 lines of code should ever exist.
+  // i will teach about making one parent method acting as a "boss" or "coordinator" to better handle this.
+  // see t he example in image upload in my codebase. If i added all the image upload code in a single method it would be 50+ lines of code
+  // 3R's readability point 4 Function length
+  // -1
   const addItemToList = (e) => {
     e.preventDefault();
     // check that data entered is correct
@@ -67,6 +80,7 @@ export default function AddItemOverlay({ type, item }) {
     }
   };
 
+  // again this method is too long -1
   // edit an item - todo
   const editItem = (e) => {
     e.preventDefault();
@@ -98,6 +112,8 @@ export default function AddItemOverlay({ type, item }) {
     }
   };
 
+  // Again this is too long, can be break down into smaller components
+  // -1
   return (
     <div>
       {type === "addItem" && (

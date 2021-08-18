@@ -9,6 +9,8 @@ import Sort from "./Sort";
 import Button from "./Button";
 import Methods from "../services/Methods";
 
+// This component can refactored into many many other components, and they can take the logic from here.
+// because this component have methods for everything
 export default function List() {
   // STATES
   const [filterResults, setFilterResults] = useState(
@@ -22,6 +24,8 @@ export default function List() {
   // Sorting/filtering logic
   let items = Methods.sortByTimestampOlderFirst(data);
 
+  // You dont need to filter the completed items here
+  // this make your app more complex that it ever needed to be
   if (filterResults) {
     if (sortBy === "price") {
       items = Methods.getOnlyAcquiredItems(Methods.sortByPrice(data));
@@ -55,6 +59,7 @@ export default function List() {
     Methods.saveSortBySelected("timestamp");
   }
 
+  // no console logs in production -1
   console.log(sortBy);
 
   function toggleFilter() {
@@ -65,10 +70,13 @@ export default function List() {
   function handleClear() {
     localStorage.clear();
     window.location.reload();
+    // you dont need to reload the page.
+    // if you make all your states show empty it should re-render
   }
 
   return (
     <section className="shopping_list">
+      {/* Having a if else where the if has 1 line of code ( <Welcome /> ) and the else has 29 lines of code, yes i counted, is a clear sign that you could refactor the else code into another component */}
       {data.length === 0 ? (
         <Welcome />
       ) : (
@@ -83,6 +91,7 @@ export default function List() {
             toggleFilter={toggleFilter}
           />
           <div className="list-container">
+            {/* Name (readabilty) problem. IF List would be called Main or Normal, then this component should be name List */}
             <ListHeader />
             <ol>
               <>

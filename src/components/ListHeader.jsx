@@ -6,6 +6,7 @@ export default function FooterList() {
       <p>Price</p>
       <p></p>
       <p></p>
+      {/* why the empty p tags? */}
     </div>
   );
 }

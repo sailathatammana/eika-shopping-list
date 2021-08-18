@@ -1,5 +1,7 @@
 import { Eye, EyeSlash } from "react-bootstrap-icons";
 
+// This component is 
+// filterResults sounds like 
 export default function Toogle({ filterResults }) {
   return (
     <div className="wrapper">

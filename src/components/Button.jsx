@@ -1,3 +1,6 @@
+// Button what?
+// It should be calledD ClearButton because is not a geenric button that i can use for other purposes
+// Readibily problems -1
 export default function Button({ handleClear, length }) {
   return (
     <div>

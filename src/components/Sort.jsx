@@ -1,5 +1,8 @@
 import Toogle from "./Toggle";
 
+// Never pass more than 3 arguments.
+// either group them in a object
+// or is a clear sign that the logic should be here
 export default function Sort({
   sortBy,
   sortByName,

@@ -1,11 +1,9 @@
-import firebase from './firebase'
+import firebase from "./firebase";
 import Resizer from "react-image-file-resizer";
-
 
 /* class Storage{
 }
 export default new Storage(); */
-
 
 /* const resizeFile = (file) =>
   new Promise((resolve) => {
@@ -19,10 +17,10 @@ async function uri(file) {
 }   */
 
 export const uploadFromBlobAsync = async ({ blobUrl, name }) => {
-  if (!blobUrl || !name) return null
+  if (!blobUrl || !name) return null;
 
   try {
-    const blob = await fetch(blobUrl).then((r) => r.blob())
+    const blob = await fetch(blobUrl).then((r) => r.blob());
 
     //onst lightBlob = Resizer.imageFileResizer(blob, 30, 30, "JPG", 100, 0)
 
@@ -31,9 +29,9 @@ export const uploadFromBlobAsync = async ({ blobUrl, name }) => {
     //const thumbSnapshot = await uploadString(thumbRef, uri, "data_url");
     //const thumbUrl = await getDownloadURL(thumbSnapshot.ref);
 
-    const snapshot = await firebase.storage().ref().child(name).put(blob)
-    return await snapshot.ref.getDownloadURL()
+    const snapshot = await firebase.storage().ref().child(name).put(blob);
+    return await snapshot.ref.getDownloadURL();
   } catch (error) {
-    throw error
+    throw error;
   }
-}
+};
