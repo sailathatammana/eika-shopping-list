@@ -69,7 +69,7 @@ export default function List() {
 
   function handleClear() {
     localStorage.clear();
-    window.location.reload();
+    window.location.reload(); // use state management not reload -1
     // you dont need to reload the page.
     // if you make all your states show empty it should re-render
   }

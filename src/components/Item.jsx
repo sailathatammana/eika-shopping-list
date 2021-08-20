@@ -24,7 +24,7 @@ export default function Item({ item, reload }) {
     otherProducts.push(product[0]);
     Methods.saveListToLocalSorage(otherProducts);
 
-    window.location.reload();
+    window.location.reload(); // use state management not reload -1
   }
 
   function handleDelete() {
@@ -33,7 +33,7 @@ export default function Item({ item, reload }) {
       return i.id !== item.id;
     });
     localStorage.setItem("list", JSON.stringify(otherProducts));
-    window.location.reload();
+    window.location.reload(); // use state management not reload -1
   }
 
   function toggleDrawer() {

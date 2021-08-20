@@ -11,9 +11,9 @@ export default function AddItemOverlay({ type, item }) {
   const [price, setPrice] = useState(-1);
 
   // you dont need to create a class,
-  // you can make an object on the fly.
-  // you use classes when you have to add encapsulated functionality.
-  // right now you are just storing values, thats the job of the object data type
+  // you can make an object instead
+  // you use classes when you have to add encapsulated properties and methods.
+  // here you are just storing values, thats the job of the object data type
   // -1
   class Product {
     constructor(id, name, price, url, acquired, timestamp) {
@@ -76,7 +76,7 @@ export default function AddItemOverlay({ type, item }) {
 
       e.target.reset();
       closeOverlay();
-      window.location.reload();
+      window.location.reload(); // use state management not reload -1
     }
   };
 
@@ -108,7 +108,7 @@ export default function AddItemOverlay({ type, item }) {
       });
       otherProducts.push(product[0]);
       localStorage.setItem("list", JSON.stringify(otherProducts)); //save updated list
-      window.location.reload();
+      window.location.reload(); // use state management not reload -1
     }
   };
 
